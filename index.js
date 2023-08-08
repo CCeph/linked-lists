@@ -1,1 +1,3 @@
-console.log("ESLint & Prettier Template");
+function createLinkedList() {}
+
+function createNode() {}
