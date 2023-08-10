@@ -12,7 +12,7 @@ const linkedListPrototype = {
   },
 
   append(value) {
-    let currentNode = this;
+    let currentNode = this.firstNode;
     while (currentNode.nextNode !== null) {
       currentNode = currentNode.nextNode;
     }
@@ -22,7 +22,9 @@ const linkedListPrototype = {
   },
 
   prepend(value) {
-    console.log("Add value to start of list");
+    const firstNode = this.head();
+    // const secondNode = firstNode.nextNode;
+    const newNode = createNode(value, firstNode);
   },
 
   size() {
@@ -57,9 +59,9 @@ function createLinkedList(array) {
 
   array.forEach((element, index) => {
     if (index === 0) {
-      linkedList = createNode(element, null);
+      currentNode = createNode(element, null);
+      linkedList = { firstNode: currentNode };
       Object.setPrototypeOf(linkedList, linkedListPrototype);
-      currentNode = linkedList;
       return;
     }
 
@@ -76,3 +78,7 @@ const testList = createLinkedList([1, 3, 5, 7]);
 console.log(testList);
 
 testList.append("Ha!");
+
+testList.prepend("New first");
+
+console.log(testList);
