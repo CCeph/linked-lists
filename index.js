@@ -132,17 +132,3 @@ function createLinkedList(array) {
 
   return linkedList;
 }
-
-const testList = createLinkedList([1, 3, 5, 7]);
-
-console.log(testList);
-
-testList.append("Ha!");
-
-testList.prepend("New first");
-
-console.log(testList.at(5));
-
-testList.pop();
-
-console.log(testList.toString());
