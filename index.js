@@ -7,11 +7,17 @@ const linkedListPrototype = {
     console.log("Add value to start of list");
   },
 
-  size: 0,
+  size() {
+    console.log("Size of List");
+  },
 
-  head: console.log("Head of list"),
+  head() {
+    console.log("Head of list");
+  },
 
-  tail: console.log("Tail of list"),
+  tail() {
+    console.log("Tail of list");
+  },
 
   at(index) {
     console.log("Return node at index");
@@ -46,6 +52,7 @@ function createLinkedList(array) {
   array.forEach((element, index) => {
     if (index === 0) {
       linkedList = createNode(element, null);
+      Object.setPrototypeOf(linkedList, linkedListPrototype);
       currentNode = linkedList;
       return;
     }
@@ -58,4 +65,6 @@ function createLinkedList(array) {
   return linkedList;
 }
 
-console.log(createLinkedList([1, 3, 5, 7]));
+const testList = createLinkedList([1, 3, 5, 7]);
+
+console.log(testList);
