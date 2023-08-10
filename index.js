@@ -8,7 +8,13 @@ const linkedListPrototype = {
   },
 
   tail() {
-    console.log("Tail of list");
+    let currentNode = this.firstNode;
+    while (currentNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+    }
+
+    const lastNode = currentNode;
+    return lastNode;
   },
 
   append(value) {
@@ -81,4 +87,4 @@ testList.append("Ha!");
 
 testList.prepend("New first");
 
-console.log(testList);
+console.log(testList.tail());
