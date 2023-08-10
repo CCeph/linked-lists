@@ -64,7 +64,13 @@ const linkedListPrototype = {
   },
 
   pop() {
-    console.log("Remove last node");
+    let currentNode = this.firstNode;
+    while (currentNode.nextNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+    }
+
+    const beforeLastNode = currentNode;
+    beforeLastNode.nextNode = null;
   },
 
   contains(value) {
@@ -109,4 +115,8 @@ testList.append("Ha!");
 
 testList.prepend("New first");
 
-console.log(testList.at(6));
+console.log(testList.at(5));
+
+testList.pop();
+
+console.log(testList.at(5));
