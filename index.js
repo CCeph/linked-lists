@@ -34,6 +34,28 @@ const linkedListPrototype = {
   },
 };
 
-function createLinkedList(array) {}
+function createNode(value, nextNode) {
+  return { value, nextNode };
+}
 
-function createNode() {}
+function createLinkedList(array) {
+  let linkedList;
+  let previousNode;
+  let currentNode;
+
+  array.forEach((element, index) => {
+    if (index === 0) {
+      linkedList = createNode(element, null);
+      currentNode = linkedList;
+      return;
+    }
+
+    previousNode = currentNode;
+    currentNode = createNode(element, null);
+    previousNode.nextNode = currentNode;
+  });
+
+  return linkedList;
+}
+
+console.log(createLinkedList([1, 3, 5, 7]));
