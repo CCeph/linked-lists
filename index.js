@@ -3,6 +3,14 @@ function createNode(value, nextNode) {
 }
 
 const linkedListPrototype = {
+  head() {
+    return this;
+  },
+
+  tail() {
+    console.log("Tail of list");
+  },
+
   append(value) {
     let currentNode = this;
     while (currentNode.nextNode !== null) {
@@ -19,14 +27,6 @@ const linkedListPrototype = {
 
   size() {
     console.log("Size of List");
-  },
-
-  head() {
-    console.log(this);
-  },
-
-  tail() {
-    console.log("Tail of list");
   },
 
   at(index) {
