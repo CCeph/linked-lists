@@ -100,7 +100,15 @@ const linkedListPrototype = {
   },
 
   toString() {
-    console.log("Print list as a string");
+    let stringList = "";
+    let currentNode = this.firstNode;
+    while (currentNode !== null) {
+      stringList += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+
+    stringList += `null`;
+    return stringList;
   },
 };
 
@@ -137,4 +145,4 @@ console.log(testList.at(5));
 
 testList.pop();
 
-console.log(testList.find("New first"));
+console.log(testList.toString());
