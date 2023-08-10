@@ -1,6 +1,16 @@
+function createNode(value, nextNode) {
+  return { value, nextNode };
+}
+
 const linkedListPrototype = {
   append(value) {
-    console.log("Add value to end of list");
+    let currentNode = this;
+    while (currentNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+    }
+
+    const lastNode = currentNode;
+    lastNode.nextNode = createNode(value, null);
   },
 
   prepend(value) {
@@ -12,7 +22,7 @@ const linkedListPrototype = {
   },
 
   head() {
-    console.log("Head of list");
+    console.log(this);
   },
 
   tail() {
@@ -40,10 +50,6 @@ const linkedListPrototype = {
   },
 };
 
-function createNode(value, nextNode) {
-  return { value, nextNode };
-}
-
 function createLinkedList(array) {
   let linkedList;
   let previousNode;
@@ -68,3 +74,5 @@ function createLinkedList(array) {
 const testList = createLinkedList([1, 3, 5, 7]);
 
 console.log(testList);
+
+testList.append("Ha!");
