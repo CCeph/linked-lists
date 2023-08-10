@@ -86,7 +86,17 @@ const linkedListPrototype = {
   },
 
   find(value) {
-    console.log("Return the index of the node containing value, or null");
+    let currentNode = this.firstNode;
+    let index = 0;
+    while (currentNode !== null) {
+      if (currentNode.value === value) {
+        return index;
+      }
+      currentNode = currentNode.nextNode;
+      index += 1;
+    }
+
+    return null;
   },
 
   toString() {
@@ -127,4 +137,4 @@ console.log(testList.at(5));
 
 testList.pop();
 
-console.log(testList.contains("New first"));
+console.log(testList.find("New first"));
