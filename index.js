@@ -34,7 +34,7 @@ const linkedListPrototype = {
   },
 
   size() {
-    let currentNode = this.firstNode;
+    let currentNode = this.head();
     let listSize = 0;
     if (currentNode === null) {
       return listSize;
@@ -49,7 +49,18 @@ const linkedListPrototype = {
   },
 
   at(index) {
-    console.log("Return node at index");
+    if (index < 0) {
+      return Error("Negative index entered");
+    }
+    let currentNode = this.head();
+    for (let i = 0; i < index; i += 1) {
+      if (currentNode.nextNode === null) {
+        return Error("Index is too big for this list");
+      }
+      currentNode = currentNode.nextNode;
+    }
+
+    return currentNode;
   },
 
   pop() {
@@ -98,4 +109,4 @@ testList.append("Ha!");
 
 testList.prepend("New first");
 
-console.log(testList.size());
+console.log(testList.at(6));
