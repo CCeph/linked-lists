@@ -74,7 +74,15 @@ const linkedListPrototype = {
   },
 
   contains(value) {
-    console.log("Return true if value is in the list");
+    let currentNode = this.firstNode;
+    while (currentNode !== null) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.nextNode;
+    }
+
+    return false;
   },
 
   find(value) {
@@ -119,4 +127,4 @@ console.log(testList.at(5));
 
 testList.pop();
 
-console.log(testList.at(5));
+console.log(testList.contains("New first"));
