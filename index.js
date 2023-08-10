@@ -4,7 +4,7 @@ function createNode(value, nextNode) {
 
 const linkedListPrototype = {
   head() {
-    return this;
+    return this.firstNode;
   },
 
   tail() {
@@ -23,8 +23,8 @@ const linkedListPrototype = {
 
   prepend(value) {
     const firstNode = this.head();
-    // const secondNode = firstNode.nextNode;
     const newNode = createNode(value, firstNode);
+    this.firstNode = newNode;
   },
 
   size() {
